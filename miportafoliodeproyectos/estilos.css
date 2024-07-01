@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+
+/*Import= La regla-at CSS @import permite importar reglas desde otras hojas de estilo.
+- url= Representa la ubicación del recurso a importar. La url puede ser absoluta o relativa. Una dirección URL absoluta contiene toda la información necesaria para localizar un recurso. Una dirección URL relativa es una estructura de URL que contiene la ruta de ubicación, omitiendo el nombre del sitio web.
+Google Fonts= Es un directorio interactivo en el que puedes encontrar 923 familias de fuentes tipográficas de uso libre y completamente gratuito*/
+
+/*Variables*/
+
+:root {
+  --font-family: "Roboto", sans-serif;
+  --normal-font: 400;
+  --bold-font: 700;
+  --bolder-font: 900;
+  --bg-color: rgb(248, 242, 242);
+  --primary-color: rgb(168, 34, 85);
+  --second-color: rgb(5, 4, 4);
+  --primary-shadow: rgb(150, 26, 102);
+  --secondary-shadow: rgb(10, 10, 10);
+  --bottom-margin: 0.5rem;
+  --bottom-margin-2: 1rem;
+  --line-height: 1.7rem;
+  --transition: 0.3s;
+}
+/*rgb= La «R» hace referencia al color rojo (Red), «G» al color verde (Green) y «B» al color azul (Blue).
+- rem= Se utiliza para especificar el tamaño de los elementos en relación al tamaño de la fuente del elemento raíz o etiqueta html. Por lo tanto, si la fuente del elemento raíz es de 16 pixels y se especifica un valor de 1 rem para el tamaño de un elemento, el elemento tendrá un tamaño de 16 pixels. 
+- root= Es un selector css que te permite manejar el nodo principal de un documento, en html “:root” es igual a decir “html”, la ventaja es que :root tiene mayor prioridad(especificidad). Es muy utilizado para iniciar las variables css justamente por eso.
+- font-family= Es el tipo de letra o familia de tipos de letra es el tipo de letra que se aplicará al cuerpo de texto en un navegador. 
+- normal-font= Estilo normal de letra
+- bold-font= Determina el grado de negrita o luminosidad del texto, y los valores más altos indican un peso de fuente más negrita.
+bolder-font= Establece el grueso de la negrita del elemento activo un nivel por debajo o por encima del grueso de su elemento padre.
+- bg-color= Define el color de fondo de un elemento, puede ser el valor de un color o la palabra clave transparent.
+- primary-shadow= Agrega sombra al texto
+- bottom-margin= (margen-inferior) Es la propiedad de un elemento que establece el espacio requerido en la parte inferior de un elemento. Tambien se permiten valores negativos. 
+- line-height= Establece la altura de una casilla remarcada por líneas. Comúnmente se usa para establecer la distancia entre líneas de texto. 
+- transition= Proporcionan una forma de animar los cambios de las propiedades CSS, en lugar de que los cambios surtan efecto de manera instantánea. Por ejemplo, si cambias el color de un elemento de blanco a negro, normalmente el cambio es instantáneo*/
+
+/*Fin de las Variables*/
+
+html {
+  scroll-behavior: smooth;
+}
+/*html= (Lenguaje de Marcas de Hipertexto, del inglés HyperText Markup Language) es el componente más básico de la Web. Define el significado y la estructura del contenido web. Además de HTML, generalmente se utilizan otras tecnologías para describir la apariencia/presentación de una página web (CSS) o la funcionalidad/comportamiento (JavaScript).
+- scroll-behavior= Especifica el comportamiento del desplazamiento para un elemento con desplazamiento, cuando éste se produce debido a la navegación.
+- smooth= Se le denomina Smooth Scroll al efecto de transición entre diferentes secciones de una misma página, esto mejora el aspecto visual de una web evitando cambios bruscos entre secciones.*/
+
+/*css resets*/
+* {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+/*css resets= Lo que denominamos reset de CSS es una lista de reglas de CSS que tienen como objetivo ofrecer una base sobre la cual luego cada desarrollador creará el CSS específico para un sitio web.
+- margin= Establece el margen para los cuatro lados. Es una abreviación para evitar tener que establecer cada lado por separado con las otras propiedades de margen: margin-top , margin-right , margin-bottom y margin-left. También se permiten valores negativos.
+- padding= Crea el espacio o área alrededor del contenido de un elemento. Consiste en el relleno superior, derecho, inferior e izquierdo. En CSS se escriben como padding-top:, padding-right:, padding-bottom: y padding-left:. Sus valores por defecto son 0.
+- box-sizing= Es el comportamiento CSS por defecto para el tamaño de la caja (box-sizing). Si se define el ancho de un elemento en 100 pixeles, la caja del contenido del elemento tendrá 100 pixeles de ancho, y el ancho de cualquier borde o relleno ser añadirá al ancho final desplegado.
+- border-box= Le dice al navegador tomar en cuenta para cualquier valor que se especifique de borde o de relleno para el ancho o alto de un elemento. Es decir, si se define un elemento con un ancho de 100 pixeles. Esos 100 pixeles incluíran cualquier borde o relleno que se añadan, y la caja de contenido se encogerá para absorber ese ancho extra. Esto típicamente hace mucho más fácil dimensionar elementos.*/
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+/*a=
+- text-decoration= Se usa para establecer el formato de texto a subrayado ( underline ) y suprarrayado ( overline ), tachado ( line-through ) o parpadeo ( blink ).
+var= Puede ser utilizada como valor en cualquier propiedad de un elemento. La función var() no puede ser utilizada como nombre de una propiedad, selector o cualquier cosa que no sea un valor de propiedad. (Hacerlo provoca normalmente una sintaxis errónea o bien un valor que no tiene conexión con la variable).*/
+
+a:hover {
+  color: var (--secondary-color);
+}
+/*hover= Es una pseudo-clase que permite aplicar estilos específicos a un elemento cuando el usuario pasa el cursor del ratón sobre él. Este efecto es usado muy a menudo para indicar de manera visual a los usuarios que un elemento es interactivo y por lo tanto se puede hacer clic en él o realizar cualquier tipo de acción.*/
+
+body {
+  font-family: var (--font-family);
+}
+/*body= Indica la parte del cuerpo del contenido de un documento HTML. Es una etiqueta esencial para cualquier documento ya que indica donde empieza el contenido visible del documento.*/
+
+/*NavBar*/
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+  background-color: rgb(243, 191, 191);
+  box-shadow: 0 3px 5px rgb(151, 130, 130);
+}
+/*NavBar= Es el menú principal que aparece en la parte superior o navbar (como los desarrolladores a menudo se refieren a ella) en el lado de una página web y permite a los usuarios navegar por el sitio de manera rápida y sencilla.
+-nav= Representa una sección de una página cuyo propósito es proporcionar enlaces de navegación, ya sea dentro del documento actual o a otros documentos. Ejemplos comunes de secciones de navegación son menús, tablas de contenido e índices.
+- position= Especifica cómo un elemento es posicionado en el documento. Las propiedades top , right , bottom , y left determinan la ubicación final de los elementos posicionados.
+- sticky= Puede considerarse un híbrido de los posicionamientos relativo y fijo. Un elemento con posicionamiento sticky es tratado como un elemento posicionado relativamente hasta que cruza un umbral especificado, en cuyo punto se trata como fijo hasta que alcanza el límite de su padre.
+- top= Arriba. Posición del lado superior del elemento contando desde el borde superior de la ventana (de arriba a abajo, es decir, cuanto más grande es el valor más hacia abajo se coloca el elemento).
+- left= Izquierda. Especifica parte de la posición de un elemento (posicionado - es decir, con una posición determinada por código).
+- z-index= Se usa para establecer la visibilidad y el posicionamiento del contenido superpuesto. Cuando dos elementos se superponen, el z-index determina qué elemento aparece encima del otro.
+- display= Especifica si un elemento es tratado como block or inline element y el diseño usado por sus hijos, como flow layout(Diseño de Flujo), grid(Cuadricula) o flex(Flexible). Formalmente la propiedad display establece los tipos de visualización interna y externa de un elemento.
+- flex= Es una propiedad resumida que indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible. Los elementos flexibles pueden ser estirados para utilizar el espacio disponible proporcionalmente a su factor de crecimiento flexible o su factor de contracción flexible para evitar el desbordamiento.
+- aling-itens= Controla la alineación de todos los elementos en el eje transversal. es utilizada para alinear los elementos dentro de un contenedor flex (elementos con la propiedad display: flex establecida). 
+- justify-content= Controla la alineación de todos los elementos en el eje principal. define cómo el navegador distribuye el espacio entre y alrededor de los elementos flex, a lo largo del eje principal de su contenedor.
+- space-between= Los elementos between css repartirán el espacio sobrante de su contenedor de manera equitativa entre ellos. Esto quiere decir que los elementos a los bordes serán empujados a cada extremo y el espacios se repartirá en medio de los elementos.
+- box-shadow= Añade efectos de sombra alrededor del marco de un elemento. Permite proyectar una sombra difuminada desde el marco de casi cualquier elemento.*/
+
+ul {
+  list-style-type: none;
+}
+/*ul= De "unordered list" -lista no ordenada . crea una lista no ordenada. Sus etiquetas son: <ul> y </ul> (ambas obligatorias). Está definido como: Elemento para listas.
+- list-style-type= Establece el tipo de viñetas para la lista, por ejemplo, viñetas cuadradas o circulares para una lista no ordenada; números, letras, o números romanos para una lista ordenada.
+- none= ninguna*/
+
+nav h1 {
+  color: var(--primary-color);
+}
+/*nav h1= La etiqueta H1 es un encabezado HTML que se utiliza habitualmente para marcar el título de una página web.*/
+
+nav a {
+  transition: var(--transition);
+}
+/*nav a=
+*/
+
+nav a:hover {
+  color: var(--secundary-color);
+  border-bottom: 2px solid var(--secundary-color);
+}
+/*nav a:hover=
+- border-bottom= Permite de definir de una vez todas las propiedades individuales border-bottom-color , border-bottom-style , y border-bottom-width , las cuales describen el color, estilo y ancho del borde inferior de un elementos.
+- solid= Es un borde como una línea normal formando un rectángulo.*/
+
+nav ul {
+  display: flex;
+  gap: 1.9rem;
+}
+/*nav ul=
+- gap= Es una taquigrafía para la fila- . gap y la columna- . gap , que especifica el tamaño de las canaletas, que es el espacio entre filas y columnas dentro de la cuadrícula, flexión y diseño de múltiples columnas.*/
+
+nav ul li {
+  font-weight: var(--bold-font);
+}
+/*nav ul li= Indican que se tiene un menú de navegación con las diferentes secciones o funcionalidades del sitio. Comúnmente estas secciones se indican con una lista utilizando las etiquetas <ul> y <li>.
+- font-weight= Especifica el peso o grueso de la letra. Algunos tipos de letra sólo están disponibles en normal y bold.*/
+
+/*Esconder botón de hamburguesa*/
+.burger-menu {
+  color: var(--primary-color);
+  font-size: 2rem;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+}
+/*burger-menú=
+font-size=
+border=
+cursor=
+pointer=
+*/
+
+/*Fin de NavBar*/
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  max-width: 68.5rem;
+  margin: auto;
+}
+
+.hero img {
+  height: 15rem;
+  width: 15rem;
+}
+
+.bio {
+  width: 20rem;
+  padding: 0.525rem;
+  box-shadow: 0px 2px 15px 2px var(--primary-color);
+  border-radius: 8px;
+}
+
+.bio h2 {
+  margin-bottom: var(--bottom-margim);
+}
+
+.bio p {
+  line-height: var(--line-height);
+  padding: 0.3rem 0;
+}
+
+/*About me*/
+.more-about {
+  background-color: var(--bg-color);
+  padding: 1rem 6rem;
+}
+
+.more-about h2 {
+  margin-bottom: var(--bottom-margim);
+  text-align: center;
+}
+
+.more-about p {
+  line-height: var(--line-height);
+  padding: 0.4rem;
+  text-align: center;
+}
+
+/*Skills section*/
+.skills {
+  max-width: 68.75rem;
+  margin: auto;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.skills-header {
+  margin-bottom: 1rem;
+}
+
+.skills-wrapper img {
+  padding: 1.25rem;
+}
+
+.icon {
+  width: 8rem;
+  height: 8rem;
+}
+
+.icon-card {
+  background-color: rgb(241, 199, 199);
+  box-shadow: 0 3px 10px var(--secondary-shadow);
+  border-radius: 11px;
+  padding: 20px;
+  margin: 10px;
+}
+
+/*Project Section*/
+.projects {
+  background-color: var(--bg-color);
+  padding: 32px 0;
+  margin-top: 2rem;
+}
+
+.project-pic {
+  width: 80%;
+  height: 80%;
+}
+
+.projects-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-container {
+  padding: 1rem;
+  text-align: center;
+  width: 21.875rem;
+}
+
+.projects-container p {
+  padding: 0.4rem;
+}
+
+.project-title {
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.projects-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  margin-bottom: var(--bottom-margim);
+}
+
+.project-card {
+  background-color: rgb(245, 196, 196);
+  box-shadow: 0 5px 5px var(--primary-color);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 11px;
+}
+
+
+
+/*Redes Sociales*/
+.socials{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 1%;
+    bottom: 20%;
+}
+
+.socicon{
+    width: 3.5rem;
+    height: 3.5 rem;
+}
+
+footer{
+    background-color: var(--bg-color);
+    padding: 1.25 rem;
+    text-align: center;
+    margin: 2 rem 0 0;
+}
+
+
+
+/*Scroll button*/
+.scroll-up{
+    position: fixed;
+    right: 0.5%;
+    bottom: 3%;
+    cursor: pointer;
+}
+
+.up-arrow{
+    width: 3rem;
+    height: 3rem;
+}
+
+
+
+/*Media queries for responsiveness*/
+@media screen and (max-width: 720px){
+    nav{
+        padding: 1.5rem 1rem;
+    }
+
+nav ul{
+    position: fixed;
+    background-color: rgb(240, 157, 202);
+    flex-direction: column;
+    top: 86px;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    transform: translateX(120%);
+    transition: transform 0.5s ease-in;
+}
+    
+nav ul li{
+    margin: 8px;
+}
+
+.burger-menu{
+    display: block;
+}
+
+nav ul.show{
+    transform: translateX(0);
+}
+
+.hero{
+    margin-top: -4rem;
+    flex-direction: column;
+    gap: 0;
+}
+
+.hero img{
+    height: 15rem;
+    width: 15rem;
+}
+
+.bio{
+    margin-top: -7rem;
+    width: 20.5rem;
+}
+
+.more-about{
+    margin-top: 2rem;
+    padding: 1rem 3.5rem;
+}
+
+.more-about h2{
+    text-align: center;
+}
+
+.more-about p{
+    text-align: justify;
+}
+
+.icon{
+    width: 5.875rem;
+    height: 5.25rem;
+}
+
+.projects-container{
+    flex-direction: column;
+}
+
+.project-container{
+    width: 20.875rem;
+}
+}
+
+
+@media screen and (max-width: 420px){
+.hero img{
+        height: 15px;
+        width: 15px;
+    }
+.bio{
+    width: 18.3rem;
+}
+.project-container{
+width: 17.875rem;
+}
+}
